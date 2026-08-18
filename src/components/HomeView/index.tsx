@@ -256,7 +256,9 @@ export function HomeView() {
           imageSrc={homeBackground}
           alt=""
           variant="flow"
-          fontSize={8}
+          fontSize={10}
+          frameRate={20}
+          reducedMotion={preferences.motionPreference === 'reduced'}
           brightnessBoost={2.25}
           contrast={1.15}
           threshold={0.02}
