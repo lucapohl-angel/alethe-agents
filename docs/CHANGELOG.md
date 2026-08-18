@@ -18,6 +18,11 @@ Notable user-facing changes to **Alethe** are documented here. The format is bas
   broad core/plugin defaults with the audited permissions used by the main webview. Privileged custom
   commands still depend on their own authorization and input-validation boundaries.
 
+### Fixed
+
+- Linux AppImages now use the host Wayland client library, preventing blank windows on newer
+  Wayland/Mesa systems.
+
 ## [1.6.0] — 2026-08-17
 
 ### Added
