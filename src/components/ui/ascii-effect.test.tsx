@@ -190,6 +190,20 @@ describe('AsciiEffect scheduling', () => {
     expect(frameCallbacks.size).toBe(1)
   })
 
+  it('keeps the Home effect at its original 8px grid and 30 FPS cadence', () => {
+    render(<AsciiEffect imageSrc="background.png" variant="flow" fontSize={8} />)
+
+    expect(context.font).toContain('8px')
+    runFrame(1000)
+    const drawsAfterFirstFrame = fillText.mock.calls.length
+
+    runFrame(1020)
+    expect(fillText).toHaveBeenCalledTimes(drawsAfterFirstFrame)
+
+    runFrame(1034)
+    expect(fillText.mock.calls.length).toBeGreaterThan(drawsAfterFirstFrame)
+  })
+
   it('rebuilds the sample only when the rendered size changes', () => {
     render(<AsciiEffect imageSrc="background.png" variant="flow" />)
 
